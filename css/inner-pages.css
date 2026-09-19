@@ -1,0 +1,102 @@
+/* ==========================================================================
+   PENTAGAN — INNER PAGES (shared by about.html and services.html)
+   Load AFTER css/style.css. Uses only the existing custom properties.
+   ========================================================================== */
+
+/* Accessibility helpers */
+.skip-link{
+  position:absolute; left:16px; top:-60px; z-index:300;
+  background:var(--gold-500); color:var(--green-900);
+  font-family:var(--font-display); font-weight:700;
+  padding:10px 16px; border-radius:var(--radius);
+  transition:top .15s ease;
+}
+.skip-link:focus{ top:12px; }
+
+/* Icons (inline SVG sprite) */
+.ico{
+  width:1em; height:1em; flex-shrink:0;
+  fill:none; stroke:currentColor; stroke-width:1.8;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+
+/* Eyebrow contrast on light backgrounds */
+main .eyebrow{ color:#8a6414; letter-spacing:.02em; }
+.page-hero .eyebrow,
+.section--dark .eyebrow{ color:var(--gold-500); }
+
+/* ===== Page hero ===== */
+.page-hero{
+  position:relative; overflow:hidden; color:var(--white);
+  background:var(--green-900);
+}
+.page-hero__media{ position:absolute; inset:0; }
+.page-hero__media img{ width:100%; height:100%; object-fit:cover; }
+.page-hero__scrim{
+  position:absolute; inset:0;
+  background:linear-gradient(100deg, rgba(14,51,32,.95) 0%, rgba(14,51,32,.84) 50%, rgba(14,51,32,.55) 100%);
+}
+.page-hero::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:4px;
+  background:linear-gradient(90deg, var(--gold-500) 0, var(--gold-500) 160px, transparent 160px);
+}
+.page-hero__inner{ position:relative; }
+.page-hero__content{ padding:64px 0 76px; max-width:780px; }
+.page-hero h1{
+  color:var(--white); font-size:clamp(2rem, 4.6vw, 3.1rem);
+  margin-bottom:.4em;
+}
+.page-hero__sub{
+  font-family:var(--font-display); font-weight:600;
+  color:var(--gold-100); font-size:clamp(1.05rem, 2vw, 1.3rem);
+  margin-bottom:.6em;
+}
+.page-hero__lead{ color:rgba(255,255,255,.88); font-size:1.03rem; max-width:62ch; }
+.page-hero__actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:26px; }
+
+.breadcrumb{ margin:0 0 22px; font-size:.86rem; }
+.breadcrumb ol{ display:flex; flex-wrap:wrap; gap:0; margin:0; padding:0; list-style:none; }
+.breadcrumb li{ display:flex; align-items:center; color:rgba(255,255,255,.75); }
+.breadcrumb li + li::before{ content:"/"; margin:0 10px; color:var(--gold-500); }
+.breadcrumb a{ color:rgba(255,255,255,.9); border-bottom:1px solid rgba(255,255,255,.35); }
+.breadcrumb a:hover{ color:var(--gold-500); border-bottom-color:var(--gold-500); }
+.breadcrumb [aria-current]{ color:var(--white); font-weight:600; }
+
+/* ===== Section scaffolding ===== */
+.section{ padding:88px 0; }
+.section--white{ background:var(--white); }
+.section--tint{ background:var(--green-100); }
+.section--dark{ background:var(--green-900); }
+.section-head--center{ margin-left:auto; margin-right:auto; text-align:center; }
+.section-head--center .section-lead{ margin-left:auto; margin-right:auto; }
+
+/* ===== Image fallback: a missing photo never shows a broken icon ===== */
+.img-missing{
+  background:
+    linear-gradient(135deg, rgba(217,163,52,.18), transparent 45%),
+    linear-gradient(160deg, var(--green-800), var(--green-900));
+}
+.img-missing img{ display:none; }
+
+/* ===== Scroll reveal (class is added by js/page-fx.js only) ===== */
+.fx{ opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+.fx.is-visible{ opacity:1; transform:none; }
+
+@media (max-width:600px){
+  .section{ padding:64px 0; }
+  .page-hero__content{ padding:48px 0 60px; }
+  .page-hero__actions .btn{ width:100%; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .fx{ opacity:1; transform:none; transition:none; }
+}
+
+/* Lists: make sure browser default <ol> indent never shifts a layout */
+main ol{ margin:0; padding:0; list-style:none; }
+
+/* HEADER: no overrides here. About + Services use the same header as index.html. */
+@media (max-width:360px){
+  .brand{ min-width:0; flex-shrink:1; }
+  .brand__text em{ white-space:normal; }
+}

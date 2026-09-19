@@ -1,0 +1,418 @@
+/* ==========================================================================
+   PENTAGAN — CONTACT PAGE
+   Load AFTER css/style.css. Uses only the existing custom properties
+   (--green-*, --gold-*, --paper, --line, --radius, --shadow, fonts), so it
+   matches the Home page. Nothing in style.css is edited.
+
+   The enquiry modal ("Tell us about your project" popup) is styled in
+   section 8 of this file, scoped under .modal so it does not affect the
+   page's own .field / .btn rules.
+
+   Contents
+     1. Hero
+     2. Contact information + enquiry
+     3. Quick project enquiry ("Planning a new project?")
+     4. Find our office
+     5. Form note (used under the "Send Us a Message" button)
+     6. Responsive
+     7. Tell us about your project (option cards + message form card)
+     8. Enquiry modal (popup opened by every "Get a Quote" button)
+
+   Load order on contact.html:
+     css/style.css  ->  css/contact.css
+   ========================================================================== */
+
+
+/* ===== 1. Hero ===== */
+.hero--contact .hero__content{ padding:84px 24px 96px; }
+
+.breadcrumb{
+  display:flex; align-items:center; gap:10px;
+  margin:0 0 18px;
+  font-family:var(--font-display); font-weight:600; font-size:0.85rem;
+  color:rgba(255,255,255,0.78);
+}
+.breadcrumb a:hover{ color:var(--gold-500); }
+.breadcrumb span::before{ content:"/"; margin-right:10px; opacity:0.6; }
+
+
+/* ===== 2. Contact information + enquiry ===== */
+.contact-main{ padding:96px 0; background:var(--paper); }
+.contact-main__grid{
+  display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:start;
+}
+.contact-main__info h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
+
+.contact-cards{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+  margin-top:28px;
+}
+.contact-card{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:20px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-left:4px solid var(--gold-500);
+  border-radius:var(--radius);
+  transition:box-shadow .2s ease;
+}
+.contact-card:hover{ box-shadow:var(--shadow); }
+.contact-card--wide{ grid-column:1 / -1; }
+.contact-card__icon{
+  flex-shrink:0;
+  width:40px; height:40px; border-radius:50%;
+  background:var(--green-100);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.05rem;
+}
+.contact-card__text{ min-width:0; }
+.contact-card h3{ font-size:0.95rem; margin:0 0 4px; }
+.contact-card p,
+.contact-card address{
+  margin:0; font-size:0.92rem; font-style:normal;
+  color:var(--ink-soft); overflow-wrap:anywhere;
+}
+.contact-card a{ color:var(--green-800); font-weight:600; }
+.contact-card a:hover{ color:var(--green-700); text-decoration:underline; text-decoration-color:var(--gold-500); text-underline-offset:3px; }
+
+.contact-enquiry{
+  background:var(--green-900);
+  border-radius:var(--radius);
+  padding:36px 32px;
+  box-shadow:var(--shadow);
+}
+.contact-enquiry .eyebrow{ color:var(--gold-500); }
+.contact-enquiry h3{ color:var(--white); font-size:1.4rem; }
+.contact-enquiry p{ color:rgba(255,255,255,0.75); font-size:0.95rem; }
+.contact-enquiry__points{ display:grid; gap:12px; margin:22px 0 28px; }
+.contact-enquiry__points li{
+  position:relative; padding-left:26px;
+  font-size:0.92rem; color:rgba(255,255,255,0.85);
+}
+.contact-enquiry__points li::before{
+  content:"✓"; position:absolute; left:0; top:0;
+  color:var(--gold-500); font-weight:700;
+}
+.contact-enquiry__actions{ display:flex; flex-direction:column; gap:12px; }
+
+
+/* ===== 3. Quick project enquiry =====
+   Reuses .process / .process__step from style.css; only the column count differs. */
+.quick-enquiry__list{ grid-template-columns:repeat(3,1fr); }
+
+
+/* ===== 4. Find our office =====
+   Reuses .find-us from style.css. Adds the address block and the two buttons. */
+.find-us__row address{
+  font-style:normal; font-size:0.88rem; line-height:1.6; color:var(--ink-soft);
+}
+.find-us__actions{
+  display:flex; flex-wrap:wrap; gap:12px;
+  margin-top:auto; padding-top:8px;
+}
+.find-us__panel .find-us__actions .btn{ margin-top:0; align-self:auto; }
+
+
+/* ===== 5. Form note =====
+   Used under the "Send Us a Message" button in the project-enquiry card. */
+.enquiry-form__note{
+  margin:14px 0 0; font-size:0.78rem; color:var(--ink-soft); text-align:center;
+}
+
+
+/* ===== 6. Responsive ===== */
+@media (max-width:1024px){
+  .contact-main__grid{ grid-template-columns:1fr; gap:40px; }
+  .quick-enquiry__list{ grid-template-columns:repeat(3,1fr); }
+}
+
+@media (max-width:860px){
+  .quick-enquiry__list{ grid-template-columns:1fr; }
+}
+
+@media (max-width:600px){
+  .hero--contact .hero__content{ padding:64px 20px 72px; }
+  .hero--contact .hero__actions .btn{ width:100%; }
+
+  .contact-main{ padding:72px 0; }
+  .contact-cards{ grid-template-columns:1fr; }
+  .contact-card--wide{ grid-column:auto; }
+  .contact-enquiry{ padding:28px 22px; }
+  .contact-enquiry__actions .btn{ width:100%; }
+
+  .quick-enquiry{ padding:72px 0; }
+
+  .find-us__actions .btn{ flex:1 1 100%; }
+}
+
+
+/* ==========================================================================
+   7. TELL US ABOUT YOUR PROJECT
+   (Previously css/contact-addon.css, merged here. Reuses existing custom
+   properties only: no new tokens, fonts or colours.)
+   ========================================================================== */
+
+.project-enquiry{ padding:96px 0; background:var(--white); }
+.project-enquiry__grid{
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:start;
+}
+
+/* ----- Left column ----- */
+.project-enquiry__intro h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
+
+.response-badge{
+  display:flex; align-items:center; gap:12px;
+  background:var(--green-100); border-radius:var(--radius);
+  padding:16px 20px; margin:24px 0 28px;
+}
+.response-badge__dot{
+  width:10px; height:10px; border-radius:50%; background:#2f9e52; flex-shrink:0;
+}
+.response-badge strong{
+  display:block; font-family:var(--font-display); color:var(--green-900); font-size:0.92rem;
+}
+.response-badge span{ font-size:0.85rem; color:var(--ink-soft); }
+
+.option-cards{ display:grid; gap:14px; margin-bottom:32px; }
+.option-card{
+  display:flex; align-items:center; gap:16px;
+  padding:18px 20px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:4px solid var(--gold-500);
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.option-card:hover{ box-shadow:var(--shadow); transform:translateY(-2px); }
+.option-card__icon{ font-size:1.4rem; flex-shrink:0; }
+.option-card h3{ font-size:1rem; margin:0 0 2px; }
+.option-card p{ margin:0; font-size:0.85rem; }
+
+.follow-us{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.follow-us span{
+  font-family:var(--font-display); font-weight:600; font-size:0.85rem; color:var(--green-900);
+}
+.follow-us a{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 16px; border-radius:20px;
+  background:var(--paper); border:1px solid var(--line);
+  font-size:0.85rem; font-weight:600; color:var(--ink);
+}
+.follow-us a:hover{ border-color:var(--green-800); color:var(--green-800); }
+
+/* ----- Right column: message card ----- */
+.message-card{
+  background:var(--white); border-radius:var(--radius);
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.message-card__header{
+  background:var(--green-900); padding:26px 30px;
+}
+.message-card__header h3{ color:var(--white); font-size:1.25rem; margin:0 0 4px; }
+.message-card__header p{ color:rgba(255,255,255,0.72); margin:0; font-size:0.85rem; }
+.message-card__body{ padding:30px; }
+
+.pill-grid{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+.pill{
+  font-family:var(--font-display); font-weight:600; font-size:0.82rem;
+  padding:10px 16px; border-radius:var(--radius);
+  background:var(--paper); border:1.5px solid var(--line); color:var(--ink);
+  cursor:pointer; transition:border-color .15s ease, background-color .15s ease, color .15s ease;
+}
+.pill:hover{ border-color:var(--gold-500); }
+.pill.is-selected{
+  background:var(--green-800); border-color:var(--green-800); color:var(--white);
+}
+
+.message-card__field-label{
+  display:block; font-family:var(--font-display); font-weight:600;
+  font-size:0.82rem; color:var(--green-900); margin-bottom:10px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width:1024px){
+  .project-enquiry__grid{ grid-template-columns:1fr; gap:40px; }
+}
+@media (max-width:600px){
+  .project-enquiry{ padding:72px 0; }
+  .message-card__header{ padding:22px 22px; }
+  .message-card__body{ padding:22px; }
+  .option-card{ padding:16px; }
+}
+
+
+/* ==========================================================================
+   8. ENQUIRY MODAL ("Tell us about your project" popup)
+   Opened by every element with data-enquiry (js/script.js adds .is-open to
+   #enquiryModal and .modal-open to <body>). Uses the site's custom
+   properties, with fallbacks in case a variable name differs. Everything is
+   scoped under .modal so the page's own .field / .btn rules are unaffected.
+   ========================================================================== */
+
+/* Stop the page scrolling behind the open popup */
+body.modal-open{ overflow:hidden; }
+
+/* ----- Overlay ----- */
+.modal{
+  position:fixed; inset:0; z-index:2000;
+  display:none;
+  align-items:center; justify-content:center;
+  padding:24px;
+}
+.modal.is-open{ display:flex; }
+
+.modal__backdrop{
+  position:absolute; inset:0;
+  background:rgba(8,28,18,0.72);
+  backdrop-filter:blur(2px);
+}
+
+/* ----- Dialog: two columns ----- */
+.modal__dialog{
+  position:relative;
+  display:grid; grid-template-columns:0.85fr 1.35fr;
+  width:100%; max-width:920px;
+  max-height:calc(100vh - 48px);
+  overflow:hidden;
+  background:var(--white, #fff);
+  border-radius:var(--radius, 8px);
+  box-shadow:0 24px 70px rgba(0,0,0,0.4);
+  animation:modalIn .25s ease both;
+}
+@keyframes modalIn{
+  from{ opacity:0; transform:translateY(16px) scale(0.98); }
+  to{ opacity:1; transform:none; }
+}
+
+/* ----- Left panel ----- */
+.modal__aside{
+  display:flex; flex-direction:column;
+  padding:44px 34px;
+  background:var(--green-900, #0f3b25);
+  color:rgba(255,255,255,0.8);
+}
+.modal__aside .eyebrow{ color:var(--gold-500, #d4a437); margin:0 0 10px; }
+.modal__aside h2{
+  margin:0 0 12px;
+  font-size:1.5rem; line-height:1.25;
+  color:var(--white, #fff);
+}
+.modal__aside p{ margin:0; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.78); }
+
+.modal__points{ display:grid; gap:12px; margin:24px 0 0; padding:0; list-style:none; }
+.modal__points li{
+  position:relative; padding-left:24px;
+  font-size:0.88rem; color:rgba(255,255,255,0.88);
+}
+.modal__points li::before{
+  content:"✓"; position:absolute; left:0; top:0;
+  color:var(--gold-500, #d4a437); font-weight:700;
+}
+
+.modal__phone{
+  margin-top:24px;
+  font-family:var(--font-display, inherit); font-weight:700; font-size:0.95rem;
+  color:var(--gold-500, #d4a437);
+}
+.modal__phone:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* ----- Right panel ----- */
+.modal__main{
+  position:relative;
+  padding:44px 36px 30px;
+  overflow-y:auto;
+}
+
+.modal__close{
+  position:absolute; top:12px; right:14px;
+  width:36px; height:36px;
+  display:flex; align-items:center; justify-content:center;
+  border:0; border-radius:50%;
+  background:transparent; color:var(--ink, #1a1a1a);
+  font-size:1.6rem; line-height:1; cursor:pointer;
+  transition:background-color .15s ease;
+}
+.modal__close:hover{ background:var(--paper, #f4f4ef); }
+
+/* ----- Form fields ----- */
+.modal .enquiry-form__row{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+}
+.modal .field{ margin-bottom:16px; min-width:0; }
+
+.modal .field label{
+  display:block; margin-bottom:6px;
+  font-family:var(--font-display, inherit); font-weight:700; font-size:0.78rem;
+  color:var(--green-900, #0f3b25);
+}
+.modal .field label span{ font-weight:500; color:var(--ink-soft, #666); }
+
+.modal .field input,
+.modal .field select,
+.modal .field textarea{
+  width:100%;
+  padding:11px 12px;
+  font:inherit; font-size:0.88rem; color:var(--ink, #1a1a1a);
+  background:var(--paper, #f4f4ef);
+  border:1.5px solid var(--line, #dcdcd2);
+  border-radius:var(--radius, 6px);
+  transition:border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.modal .field textarea{ resize:vertical; min-height:84px; }
+.modal .field input::placeholder,
+.modal .field textarea::placeholder{ color:#9a9a90; }
+
+.modal .field input:focus,
+.modal .field select:focus,
+.modal .field textarea:focus{
+  outline:none;
+  background:var(--white, #fff);
+  border-color:var(--green-800, #17603a);
+  box-shadow:0 0 0 3px rgba(23,96,58,0.15);
+}
+
+/* Validation (classes are toggled by js/script.js) */
+.modal .field__error{
+  display:block; min-height:0; margin-top:4px;
+  font-size:0.76rem; color:#c0392b;
+}
+.modal .field.has-error input,
+.modal .field.has-error select,
+.modal .field.has-error textarea{
+  border-color:#c0392b; background:#fff7f6;
+}
+
+/* ----- Buttons + note ----- */
+.modal .enquiry-form__actions{
+  display:flex; flex-wrap:wrap; gap:12px;
+  margin-top:6px;
+}
+.modal .enquiry-form__actions .btn{ flex:1 1 auto; justify-content:center; text-align:center; }
+.modal .enquiry-form__note{
+  margin:14px 0 0; font-size:0.75rem; color:var(--ink-soft, #666); text-align:left;
+}
+
+/* ----- Tablet / phone ----- */
+@media (max-width:820px){
+  .modal{ padding:12px; align-items:flex-end; }
+  .modal__dialog{
+    grid-template-columns:1fr;
+    max-height:calc(100vh - 24px);
+    overflow-y:auto;
+  }
+  .modal__aside{ padding:26px 24px 22px; }
+  .modal__aside h2{ font-size:1.25rem; }
+  .modal__points,
+  .modal__phone{ display:none; }        /* keep the form the focus on small screens */
+  .modal__main{ padding:24px 22px 24px; overflow:visible; }
+}
+
+@media (max-width:520px){
+  .modal .enquiry-form__row{ grid-template-columns:1fr; gap:0; }
+  .modal .enquiry-form__actions .btn{ flex:1 1 100%; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .modal__dialog{ animation:none; }
+}

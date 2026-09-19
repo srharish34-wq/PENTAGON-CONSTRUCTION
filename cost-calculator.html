@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Construction Cost Calculator (2026) Chennai | Pentagan Engineers &amp; Constructions</title>
+<meta name="description" content="Estimate your home construction cost in Chennai floor by floor — pick a package, enter your built-up area and get an instant, downloadable quotation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/cost-calculator.css">
+<link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+
+<!-- ===== TOP STRIP ===== -->
+<div class="top-strip">
+  <div class="container top-strip__inner">
+    <div class="top-strip__contact">
+      <a href="tel:+918754797065">📞 +91 87547 97065</a>
+      <a href="mailto:pentaganenc@gmail.com">✉ pentaganenc@gmail.com</a>
+    </div>
+    <div class="top-strip__address">158/10B, Ambal Nagar Main Road, Sennerkuppam, Poonamallee, Chennai&nbsp;-&nbsp;56</div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="Pentagan Engineers &amp; Constructions logo" class="brand__logo">
+      <span class="brand__text">
+        <strong>PENTAGAN</strong>
+        <em>Engineers &amp; Constructions</em>
+      </span>
+    </a>
+
+    <nav class="nav" id="siteNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About&nbsp;Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="floor-plans.html">House Floor&nbsp;Plans</a></li>
+        <li><a href="cost-calculator.html" class="is-active">Cost&nbsp;Calculator</a></li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Projects</a>
+          <ul class="dropdown">
+            <li><a href="projects-ongoing.html">Ongoing Projects</a></li>
+            <li><a href="projects-completed.html">Completed Projects</a></li>
+          </ul>
+        </li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact&nbsp;Us</a></li>
+      </ul>
+    </nav>
+
+    <a href="contact.html" class="btn btn--gold nav-cta">Get a Quote</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== BANNER ===== -->
+<section class="cc-banner">
+  <div class="cc-banner__media">
+    <img src="images/calculator-banner.jpg" alt="Home construction site in Chennai" class="cc-banner__img">
+    <div class="cc-banner__scrim"></div>
+  </div>
+  <div class="container cc-banner__content">
+    <p class="eyebrow">Instant estimate</p>
+    <h1>Home Construction Cost Calculator</h1>
+    <p class="cc-banner__lead">Pick your floors and package, enter your area, and get a downloadable quotation in seconds.</p>
+  </div>
+</section>
+
+<!-- ===== CALCULATOR ===== -->
+<section class="calculator" id="calculator">
+  <div class="container">
+
+    <div class="calc-card">
+      <div class="calc-card__head">
+        <h2>Home Construction Cost Calculator (2026) Chennai</h2>
+        <p>You can arrive at your construction estimate here.</p>
+      </div>
+
+      <!-- Optional details for the quotation -->
+      <div class="calc-lead">
+        <div class="field">
+          <label for="custName">Your Name <span>(optional)</span></label>
+          <input type="text" id="custName" placeholder="e.g. R. Suresh Kumar">
+        </div>
+        <div class="field">
+          <label for="custPhone">Mobile Number <span>(optional)</span></label>
+          <input type="tel" id="custPhone" placeholder="e.g. 98765 43210">
+        </div>
+        <div class="field">
+          <label for="custSite">Site Location <span>(optional)</span></label>
+          <input type="text" id="custSite" placeholder="e.g. Poonamallee, Chennai">
+        </div>
+      </div>
+
+      <!-- Floor / package selectors -->
+      <div class="calc-controls">
+        <div class="field">
+          <label for="floorSelect">No. of Floors</label>
+          <select id="floorSelect">
+            <option value="0">Ground</option>
+            <option value="1">G + 1</option>
+            <option value="2">G + 2</option>
+            <option value="3">G + 3</option>
+            <option value="4">G + 4</option>
+            <option value="5">G + 5</option>
+            <option value="6">G + 6</option>
+            <option value="7">G + 7</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="packageSelect">Package</label>
+          <select id="packageSelect">
+            <option value="2499">Standard Package @ 2499/sqft</option>
+            <option value="2749">Premium Package @ 2749/sqft</option>
+            <option value="3499">Ultra Luxury Package @ 3499/sqft</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Estimate table -->
+      <div class="calc-table-wrap">
+        <table class="calc-table" id="calcTable">
+          <thead>
+            <tr>
+              <th class="col-work">Work</th>
+              <th class="col-area">Area</th>
+              <th class="col-unit">Unit</th>
+              <th class="col-rate">Rate</th>
+              <th class="col-cost">Cost</th>
+            </tr>
+          </thead>
+          <tbody id="floorRows">
+            <!-- floor rows injected by JS -->
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Size of RCC Water Sump <span class="hint">(a 4-member family will require 9000 litre capacity)</span></td>
+              <td><input type="number" min="0" class="calc-input" id="sumpLiters" placeholder="No. of Liters"></td>
+              <td>ltr</td>
+              <td>Rs.30</td>
+              <td class="cost" id="sumpCost">Rs. 0</td>
+            </tr>
+            <tr>
+              <td>Size of Septic Tank</td>
+              <td><input type="number" min="0" class="calc-input" id="septicLiters" placeholder="No. of Liters"></td>
+              <td>ltr</td>
+              <td>Rs.30</td>
+              <td class="cost" id="septicCost">Rs. 0</td>
+            </tr>
+            <tr>
+              <td>Plain Compound Wall</td>
+              <td class="col-area--split">
+                <input type="number" min="0" class="calc-input calc-input--small" id="wallLength" placeholder="Length">
+                <input type="number" min="0" class="calc-input calc-input--small" id="wallHeight" placeholder="Height">
+              </td>
+              <td>sqft</td>
+              <td>Rs.425</td>
+              <td class="cost" id="wallCost">Rs. 0</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="calc-total-row">
+              <td colspan="4">Total Construction Cost</td>
+              <td class="cost" id="grandTotal">Rs. 0</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="calc-actions">
+        <button class="btn btn--gold-pill" id="getEstimateBtn">Get Free Estimate Now</button>
+      </div>
+      <p class="calc-disclaimer">* This calculator gives an indicative estimate only. Final cost depends on site conditions, structural design, statutory approvals and material choices confirmed at the time of agreement.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+  <div class="container cta-banner__inner">
+    <div>
+      <h2>Want a more accurate number?</h2>
+      <p>Send us your plot dimensions and requirements — our engineers will prepare a detailed BOQ.</p>
+    </div>
+    <a href="contact.html" class="btn btn--gold">Talk to Our Team</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__col footer__brand">
+      <img src="images/logo-white.png" alt="Pentagan Engineers & Constructions logo" class="footer__logo">
+      <p>Building strong foundations. Creating lasting value.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="floor-plans.html">House Floor Plans</a></li>
+        <li><a href="cost-calculator.html">House Cost Calculator</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#housing">Housing &amp; Infra Developers</a></li>
+        <li><a href="services.html#roads">Roads &amp; Site Developments</a></li>
+        <li><a href="services.html#interiors">Interiors &amp; Renovations</a></li>
+        <li><a href="services.html#industrial">Industrial Buildings</a></li>
+        <li><a href="services.html#approval">Planning &amp; Govt Approval</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <ul class="footer__contact">
+        <li>158/10B, Ambal Nagar Main Road, Sennerkuppam, Poonamallee, Chennai - 56</li>
+        <li><a href="tel:+918754797065">+91 87547 97065</a></li>
+        <li><a href="tel:04446014806">044 4601 4806</a></li>
+        <li><a href="mailto:pentaganenc@gmail.com">pentaganenc@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p>&copy; <span id="year"></span> Pentagan Engineers &amp; Constructions. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- ===== QUOTATION OVERLAY (A4 preview) ===== -->
+<div class="quote-overlay" id="quoteOverlay" aria-hidden="true">
+  <div class="quote-overlay__bar">
+    <button class="btn btn--outline-green" id="closeQuoteBtn">← Back to Calculator</button>
+    <div class="quote-overlay__actions">
+      <button class="btn btn--green" id="printQuoteBtn">Print</button>
+      <button class="btn btn--gold" id="downloadQuoteBtn">⬇ Download PDF</button>
+    </div>
+  </div>
+
+  <div class="quote-scroll">
+    <div class="quote-page" id="quotePage">
+      <div class="quote-letterhead">
+        <img src="images/logo.png" alt="Pentagan Engineers & Constructions logo" class="quote-logo">
+        <div class="quote-company">
+          <h2>PENTAGAN <span>Engineers &amp; Constructions</span></h2>
+          <p>158/10B, Ambal Nagar Main Road, Sennerkuppam, Poonamallee, Chennai - 56</p>
+          <p>+91 87547 97065 &nbsp;|&nbsp; 044 4601 4806 &nbsp;|&nbsp; pentaganenc@gmail.com</p>
+        </div>
+      </div>
+      <div class="quote-divider"></div>
+
+      <div class="quote-meta">
+        <div>
+          <h3>Construction Cost Estimate</h3>
+          <p id="quoteNo">Estimate No: —</p>
+          <p id="quoteDate">Date: —</p>
+        </div>
+        <div class="quote-meta__to">
+          <p><strong>Prepared for:</strong> <span id="quoteName">—</span></p>
+          <p><strong>Mobile:</strong> <span id="quotePhone">—</span></p>
+          <p><strong>Site Location:</strong> <span id="quoteSite">—</span></p>
+        </div>
+      </div>
+
+      <table class="quote-table" id="quoteTable">
+        <thead>
+          <tr>
+            <th>Work</th>
+            <th>Area</th>
+            <th>Unit</th>
+            <th>Rate (Rs.)</th>
+            <th>Amount (Rs.)</th>
+          </tr>
+        </thead>
+        <tbody id="quoteTableBody">
+          <!-- injected by JS -->
+        </tbody>
+        <tfoot>
+          <tr class="quote-total-row">
+            <td colspan="4">Total Construction Cost</td>
+            <td id="quoteTotal">Rs. 0</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div class="quote-package">
+        <p><strong>Package selected:</strong> <span id="quotePackage">—</span></p>
+        <p><strong>No. of floors:</strong> <span id="quoteFloors">—</span></p>
+      </div>
+
+      <div class="quote-notes">
+        <h4>Notes</h4>
+        <ul>
+          <li>This is a system-generated estimate for reference only and is not a binding quotation.</li>
+          <li>Final cost may vary based on site conditions, structural design, soil report and material specifications.</li>
+          <li>This estimate is valid for 15 days from the date shown above.</li>
+          <li>GST and statutory approval charges, if applicable, are not included above.</li>
+        </ul>
+      </div>
+
+      <div class="quote-footer">
+        <p>Pentagan Engineers &amp; Constructions — Building Trust. Constructing Futures.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PDF generation libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="js/script.js"></script>
+<script src="js/cost-calculator.js"></script>
+</body>
+</html>
