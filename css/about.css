@@ -278,8 +278,12 @@
   border-left:4px solid var(--gold-500); padding-left:32px; min-width:0;
 }
 .lead__text h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
-.lead__name{
-  font-size:1.4rem; color:var(--green-800); margin:6px 0 2px;
+.lead__name {
+  font-size: 1.4rem;
+  color: var(--green-800);
+  margin: 6px 0 2px;
+font-family: italic;
+
 }
 .lead__qual{ margin:0; font-family:var(--font-display); font-weight:600; color:var(--ink); }
 .lead__exp{
