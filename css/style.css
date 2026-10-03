@@ -126,25 +126,29 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 }
 .brand__text{ display:flex; flex-direction:column; line-height:1.2; }
 .brand__text strong {
-  font-family: "Arial Narrow", "Roboto Condensed", sans-serif;
-  color: var(--green-900);
+  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  color: #24733d;
   font-size: 20px;
   font-weight: 900;
   font-style: italic;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   transform: skewX(-8deg);
   display: inline-block;
+  line-height: 0.95;
 }
+
 .brand__text em {
-  font-family: "Arial Narrow", Arial, sans-serif;
-  font-style: italic;
+  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  color: #24733d;
+  font-size: 12px;
   font-weight: 900;
-  color: #28723b;
-  font-size: 0.75rem;
-  letter-spacing: -0.04em;
+  font-style: italic;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
-  line-height: 1;
+  transform: skewX(-8deg);
+  display: inline-block;
+  line-height: 0.95;
 }
 
 .nav ul{ display:flex; align-items:center; gap:22px; flex-wrap:nowrap; }
