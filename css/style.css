@@ -125,9 +125,16 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   width: auto;
 }
 .brand__text{ display:flex; flex-direction:column; line-height:1.2; }
-.brand__text strong{
-  font-family:var(--font-display); color:var(--green-900);
-  font-size: 20px; letter-spacing:0.02em;
+.brand__text strong {
+  font-family: "Arial Narrow", "Roboto Condensed", sans-serif;
+  color: var(--green-900);
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  transform: skewX(-8deg);
+  display: inline-block;
 }
 .brand__text em{ font-style:normal; color:var(--ink-soft); font-size:0.75rem; }
 
