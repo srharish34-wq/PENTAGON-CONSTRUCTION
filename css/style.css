@@ -124,31 +124,43 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   height: 80px;
   width: auto;
 }
-.brand__text{ display:flex; flex-direction:column; line-height:1.2; }
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+/* PENTAGAN */
 .brand__text strong {
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: #24733d;
   font-size: 20px;
   font-weight: 900;
   font-style: italic;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
-  transform: skewX(-8deg);
-  display: inline-block;
+  display: block;
   line-height: 0.95;
+  transform: skewX(-7deg);
+  transform-origin: left center;
 }
 
+/* ENGINEERS & CONSTRUCTIONS */
 .brand__text em {
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   color: #24733d;
-  font-size: 12px;
+  font-size: 10.5px;
   font-weight: 900;
   font-style: italic;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
-  transform: skewX(-8deg);
-  display: inline-block;
+  display: block;
   line-height: 0.95;
+  margin-top: 2px;
+  transform: skewX(-7deg);
+  transform-origin: left center;
 }
 
 .nav ul{ display:flex; align-items:center; gap:22px; flex-wrap:nowrap; }
