@@ -127,7 +127,7 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 .brand__text{ display:flex; flex-direction:column; line-height:1.2; }
 .brand__text strong{
   font-family:var(--font-display); color:var(--green-900);
-  font-size:1.15rem; letter-spacing:0.02em;
+  font-size: 20px; letter-spacing:0.02em;
 }
 .brand__text em{ font-style:normal; color:var(--ink-soft); font-size:0.75rem; }
 
