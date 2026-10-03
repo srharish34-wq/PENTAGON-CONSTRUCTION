@@ -215,7 +215,11 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   max-width:270px;
 }
 .about-snap--reverse .about-snap__badge{ left:auto; right:-24px; }
-.about-snap__badge strong{ font-family:var(--font-display); color:var(--green-900); }
+.about-snap__badge strong {
+  font-family: var(--font-display);
+  color: var(--green-900);
+  font-style: italic;
+}
 .about-snap__badge span{ font-size:0.8rem; color:var(--ink-soft); }
 .about-snap__text h2{ font-size:clamp(1.6rem,3vw,2.1rem); }
 .check-list{ display:grid; gap:12px; margin:20px 0 28px; }
